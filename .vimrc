@@ -7,12 +7,22 @@
 
 version 6.3
 
+function! StartUp()
+  if 0 == argc()
+      NERDTree
+  end
+
+  execute pathogen#infect()
+endfunction
+
+autocmd VimEnter * call StartUp()
+
 
 "------------------------------------------------------------------------------
 " Standard stuff.
 "------------------------------------------------------------------------------
 " 2-7-2012: adding spell checking by default for now
-set spell
+"set spell
 "no idea what these are for
 "something about formatting
 set cinoptions=:0,p0,t0
@@ -54,7 +64,7 @@ set magic               " Use 'magic' patterns (extended regular expressions).
 set tabstop=2           " Number of spaces <tab> counts for.
 set shiftwidth=2				" Number of spaces for tabs using smartindent
 set ttyscroll=1         " Turn off scrolling (this is faster).
-"set ttyfast             " We have a fast terminal connection.
+set ttyfast             " We have a fast terminal connection.
 set hlsearch            " Highlight search matches.
 "set encoding=utf-8      " Set default encoding to UTF-8.
 " set showbreak=+         " Show a '+' if a line is longer than the screen.
@@ -65,6 +75,8 @@ set nostartofline       " Do not jump to first character with page commands,
 set viminfo='20,\"50    " Read/write a .viminfo file, don't store more than
                         " 50 lines of registers.
 set viminfo^=!          " Add recently accessed projects menu (project plugin)
+set mouse=a
+set ttymouse=xterm2
 
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
@@ -177,7 +189,7 @@ if has("autocmd")
 
   " Enabled file type detection and file-type specific plugins.
   " filetype plugin on indent
-  filetype plugin on
+  filetype plugin indent on
 
   " Drupal *.module and *.engine files.
   augroup module
