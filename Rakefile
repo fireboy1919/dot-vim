@@ -3,8 +3,10 @@ PWD = ENV['PWD']
 def install_in path
   dot_vim_target = File.join path, '.vim'
   vimrc_target = File.join path, '.vimrc'
+  bashrc_target = File.join path, '.bashrc'
   dot_vim = File.join PWD, '.vim'
   vimrc = File.join PWD, '.vimrc'
+  bashrc = File.join PWD, '.bashrc'
 
   if File.exists?(dot_vim_target) or File.exists?(vimrc_target)
     puts "#{dot_vim_target} or #{vimrc_target} already exist. 
@@ -15,6 +17,10 @@ def install_in path
   puts "Linking files..."
   %x(ln -s #{dot_vim} #{dot_vim_target})
   %x(ln -s #{vimrc} #{vimrc_target})
+
+  open(bashrc_target,'a') { |f|
+    f.puts "source '#{bashrc}'"
+  }
 end
 
 desc "Installs the .vim and .vimrc files"
