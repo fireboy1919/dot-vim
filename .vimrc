@@ -8,17 +8,42 @@
 version 6.3
 
 function! StartUp()
-  if 0 == argc()
-      NERDTree
+    if 0 == argc()
+          NERDTree
   end
-
-  execute pathogen#infect()
+  
+  " execute pathogen#infect()
 endfunction
 
 autocmd VimEnter * call StartUp()
 
+set nocompatible        " Disable vi compatibility.
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
 
-"------------------------------------------------------------------------------
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-bundler'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'amiorin/vim-project'
+Plugin 'ctrlp.vim'
+call vundle#end()
+
+filetype plugin indent on    " required
+
+let g:project_use_nerdtree = 1
+set rtp+=/.vim/bundle/vim-project/
+call project#rc("/srv")
+
+Project '/srv/uwithus', 'UWithUs'
+call project#rc()
+
+
+"------------------------------------------------------------------------------ 
 " Standard stuff.
 "------------------------------------------------------------------------------
 " 2-7-2012: adding spell checking by default for now
@@ -37,7 +62,6 @@ set cf									" Enable error files and error jumping?
 set ruler								" turns on the ruler
 set clipboard+=unnamed	" yanks go to the os clipboard
 set number		" line numbers
-set nocompatible        " Disable vi compatibility.
 set nobackup            " Do not keep a backup file.
 set history=100         " Number of lines of command line history.
 set undolevels=200      " Number of undo levels.
@@ -123,10 +147,10 @@ set directory=~/.vim/tmp     " Where temporary files will go.
 "------------------------------------------------------------------------------
 
 " toggle nerdtree
-map <F2> :NERDTreeToggle <cr>
+map <F5> :NERDTreeToggle <cr>
 
 " toggle taglist
-map <F3> :TlistToggle <cr>
+map <F6> :TlistToggle <cr>
 
 
 "------------------------------------------------------------------------------
