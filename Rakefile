@@ -1,21 +1,21 @@
 PWD = ENV['PWD']
 
-def install_in path
+def install_in(path)
   files = %w{ .vim .tmux .vimrc  .tmux.conf }
   files.each do |f|
-    target = File.join path f
+    target = File.join path, f
     source = File.join PWD, f
-    if(File.exists?(target)
+    if(File.exists?(target))
        puts "#{target} already exists - not added."
     else
       %x(ln -s #{source} #{target})
     end
   end
 
-  append_files = %{ .bashrc }
+  append_files = %w{ .bashrc }
 
   append_files.each do |f|
-    target = File.join path f
+    target = File.join path, f
     source = File.join PWD, f
     open(target,'a') do |file|
       file.puts "source '#{source}'"

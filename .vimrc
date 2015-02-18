@@ -30,6 +30,8 @@ Plugin 'amiorin/vim-project'
 Plugin 'ctrlp.vim'
 Plugin 'The-NERD-Commenter'
 Plugin 'AnsiEsc.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+
 call vundle#end()
 
 filetype plugin indent on    " required
