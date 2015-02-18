@@ -18,7 +18,7 @@ endfunction
 autocmd VimEnter * call StartUp()
 
 set nocompatible        " Disable vi compatibility.
-filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
@@ -27,10 +27,13 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-sleuth'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'amiorin/vim-project'
 Plugin 'ctrlp.vim'
+Plugin 'The-NERD-Commenter'
+Plugin 'AnsiEsc.vim'
 call vundle#end()
 
 filetype plugin indent on    " required
@@ -42,6 +45,17 @@ call project#rc("/srv")
 Project '/srv/uwithus', 'UWithUs'
 call project#rc()
 
+" Git shortcuts
+map <leader>gb :GitBlame<CR>
+map <leader>gs :GitStatus<CR>
+map <leader>gd :GitDiff<CR>
+map <leader>gl :GitLog<CR>
+map <leader>gc :GitCommit<CR>
+map <leader>gp :GitPush<CR>
+
+" CtrlP shortcuts
+map <c-f> :CtrlPMixed<CR>
+map <leader>b :CtrlPBuffer<CR>
 
 "------------------------------------------------------------------------------ 
 " Standard stuff.
