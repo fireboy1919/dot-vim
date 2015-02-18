@@ -8,11 +8,7 @@
 version 6.3
 
 function! StartUp()
-    if 0 == argc()
-          NERDTree
-  end
   
-  " execute pathogen#infect()
 endfunction
 
 autocmd VimEnter * call StartUp()
@@ -46,12 +42,12 @@ Project '/srv/uwithus', 'UWithUs'
 call project#rc()
 
 " Git shortcuts
-map <leader>gb :GitBlame<CR>
-map <leader>gs :GitStatus<CR>
-map <leader>gd :GitDiff<CR>
-map <leader>gl :GitLog<CR>
-map <leader>gc :GitCommit<CR>
-map <leader>gp :GitPush<CR>
+map <leader>gb :Gblame<CR>
+map <leader>gs :Gstatus<CR>
+map <leader>gd :Gdiff<CR>
+map <leader>gl :Glog<CR>
+map <leader>gc :Gcommit<CR>
+map <leader>gp :Gpush<CR>
 
 " CtrlP shortcuts
 map <c-f> :CtrlPMixed<CR>
