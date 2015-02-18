@@ -1,26 +1,26 @@
 PWD = ENV['PWD']
 
 def install_in path
-  dot_vim_target = File.join path, '.vim'
-  vimrc_target = File.join path, '.vimrc'
-  bashrc_target = File.join path, '.bashrc'
-  dot_vim = File.join PWD, '.vim'
-  vimrc = File.join PWD, '.vimrc'
-  bashrc = File.join PWD, '.bashrc'
-
-  if File.exists?(dot_vim_target) or File.exists?(vimrc_target)
-    puts "#{dot_vim_target} or #{vimrc_target} already exist. 
-    Please remove these files before installing."
-    exit 1
+  files = %w{ .vim .tmux .vimrc  .tmux.conf }
+  files.each do |f|
+    target = File.join path f
+    source = File.join PWD, f
+    if(File.exists?(target)
+       puts "#{target} already exists - not added."
+    else
+      %x(ln -s #{source} #{target})
+    end
   end
 
-  puts "Linking files..."
-  %x(ln -s #{dot_vim} #{dot_vim_target})
-  %x(ln -s #{vimrc} #{vimrc_target})
+  append_files = %{ .bashrc }
 
-  open(bashrc_target,'a') { |f|
-    f.puts "source '#{bashrc}'"
-  }
+  append_files.each do |f|
+    target = File.join path f
+    source = File.join PWD, f
+    open(target,'a') do |file|
+      file.puts "source '#{source}'"
+    end
+  end
 end
 
 desc "Installs the .vim and .vimrc files"
