@@ -31,7 +31,7 @@ Plugin 'ctrlp.vim'
 Plugin 'The-NERD-Commenter'
 Plugin 'AnsiEsc.vim'
 Plugin 'christoomey/vim-tmux-navigator'
-
+Plugin 'scrooloose/nerdtree'
 call vundle#end()
 
 filetype plugin indent on    " required
