@@ -1,6 +1,6 @@
-[submodule ".vim/bundle"]
-	path = .vim/bundle
-	url = git@github.com:gmarik/Vundle.vim.git
 [submodule ".tmux/tmux-resurrect"]
 	path = .tmux/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule ".vim/bundle/Vundle.vim"]
+	path = .vim/bundle/Vundle.vim
+	url = git@github.com:gmarik/Vundle.vim.git
