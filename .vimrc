@@ -32,6 +32,8 @@ Plugin 'The-NERD-Commenter'
 Plugin 'AnsiEsc.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
+Plugin 'EasyGrep'
+Plugin 'Syntastic'
 call vundle#end()
 
 filetype plugin indent on    " required
@@ -43,6 +45,7 @@ call project#rc("/srv")
 Project '/srv/uwithus', 'UWithUs'
 call project#rc()
 
+:let mapleader = "."
 " Git shortcuts
 map <leader>gb :Gblame<CR>
 map <leader>gs :Gstatus<CR>
@@ -52,8 +55,24 @@ map <leader>gc :Gcommit<CR>
 map <leader>gp :Gpush<CR>
 
 " CtrlP shortcuts
-map <c-f> :CtrlPMixed<CR>
+map <leader>f :CtrlPMixed<CR>
 map <leader>b :CtrlPBuffer<CR>
+
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 
 "------------------------------------------------------------------------------ 
 " Standard stuff.
