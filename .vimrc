@@ -34,6 +34,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'EasyGrep'
 Plugin 'Syntastic'
+Plugin 'rking/ag.vim'
 call vundle#end()
 
 filetype plugin indent on    " required
