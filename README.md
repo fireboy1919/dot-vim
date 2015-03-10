@@ -1,6 +1,7 @@
-VIM dotfiles
+Personal Environment Setup
 ============
-These are my personal .vim and .vimrc files. Free for use, etc etc etc.
+These are my personal .vim and .vimrc files, as well as bash and tmux additions. 
+Use them however you like.
 
 Installation
 ------------
