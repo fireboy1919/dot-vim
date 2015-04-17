@@ -59,10 +59,10 @@ map <leader>gp :Gpush<CR>
 map <leader>f :CtrlPMixed<CR>
 map <leader>b :CtrlPBuffer<CR>
 
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+"nnoremap <F10>j <c-w>j
+"nnoremap <F10>k <c-w>k
+"nnoremap <F10>h <c-w>h
+"nnoremap <F10>l <c-w>l
 
 " Syntastic settings
 set statusline+=%#warningmsg#
