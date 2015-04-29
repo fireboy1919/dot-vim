@@ -31,9 +31,11 @@ Plugin 'The-NERD-Commenter'
 Plugin 'AnsiEsc.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
-Plugin 'EasyGrep'
 Plugin 'Syntastic'
-Plugin 'rking/ag.vim'
+
+" Integrating ag with ctrlp instead.
+" Plugin 'EasyGrep'
+" Plugin 'rking/ag.vim'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
@@ -60,6 +62,18 @@ map <leader>gp :Gpush<CR>
 " CtrlP shortcuts
 map <leader>f :CtrlPMixed<CR>
 map <leader>b :CtrlPBuffer<CR>
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
 
 "nnoremap <F10>j <c-w>j
 "nnoremap <F10>k <c-w>k
