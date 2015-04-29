@@ -14,6 +14,7 @@ endfunction
 autocmd VimEnter * call StartUp()
 
 set nocompatible        " Disable vi compatibility.
+set clipboard=unnamed
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -25,20 +26,22 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-sleuth'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'amiorin/vim-project'
+"  Using vim-rooter instead.
+" Plugin 'amiorin/vim-project'
 Plugin 'ctrlp.vim'
 Plugin 'The-NERD-Commenter'
 Plugin 'AnsiEsc.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Syntastic'
+Plugin 'airblade/vim-rooter'
 
-" Integrating ag with ctrlp instead.
 " Plugin 'EasyGrep'
-" Plugin 'rking/ag.vim'
+Plugin 'rking/ag.vim'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
+Plugin 'Chiel92/vim-autoformat'
 call vundle#end()
 
 filetype plugin indent on    " required
@@ -80,6 +83,11 @@ endif
 "nnoremap <F10>h <c-w>h
 "nnoremap <F10>l <c-w>l
 
+"Autoformat using F3
+
+noremap <F6> :Autoformat<CR><CR>
+
+
 " Syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -89,7 +97,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+let g:syntastic_javascript_checkers = ['jslint','standard','jshint']
 
 "------------------------------------------------------------------------------ 
 " Standard stuff.
@@ -198,7 +206,7 @@ set directory=~/.vim/tmp     " Where temporary files will go.
 map <F5> :NERDTreeToggle <cr>
 
 " toggle taglist
-map <F6> :TlistToggle <cr>
+"map <F6> :TlistToggle <cr>
 
 
 "------------------------------------------------------------------------------
