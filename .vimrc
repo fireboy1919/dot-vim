@@ -48,10 +48,6 @@ filetype plugin indent on    " required
 
 let g:project_use_nerdtree = 1
 set rtp+=~/.vim/bundle/vim-project/
-call project#rc("/srv")
-
-Project '/srv/uwithus', 'UWithUs'
-call project#rc()
 
 :let mapleader = "."
 " Git shortcuts
