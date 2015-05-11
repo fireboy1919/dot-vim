@@ -26,10 +26,12 @@ end
 desc "Installs the .vim and .vimrc files"
 task :install do
   puts "Where to install? [#{ENV['HOME']}]"
+  %x(git submodule init)
+  %x(git submodule update)
   root = $stdin.gets.chomp 
   root = root.empty? ? ENV['HOME'] : root
-
   install_in root
+  %x(vim +PluginInstall +qall)
 end
 
 namespace :install do
