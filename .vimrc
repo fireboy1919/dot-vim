@@ -35,7 +35,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Syntastic'
 Plugin 'airblade/vim-rooter'
-
+Plugin 'sjl/splice.vim'
 " Plugin 'EasyGrep'
 Plugin 'rking/ag.vim'
 Plugin 'Shougo/neocomplete'
@@ -43,6 +43,9 @@ Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'Chiel92/vim-autoformat'
 call vundle#end()
+
+" Did you forget to sudo?  Not a problem!
+cmap w!! w !sudo tee % >/dev/null
 
 filetype plugin indent on    " required
 
