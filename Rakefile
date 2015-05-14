@@ -12,7 +12,7 @@ def install_in(path)
     end
   end
 
-  append_files = %w{ .bashrc }
+  append_files = %w{ .bashrc .bash_profile }
 
   append_files.each do |f|
     target = File.join path, f
