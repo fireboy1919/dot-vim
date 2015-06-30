@@ -1,0 +1,7 @@
+tags
+gems.tags
+tmp
+.env
+log
+.vagrant
+db/*.sql
