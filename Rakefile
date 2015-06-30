@@ -1,10 +1,11 @@
 PWD = ENV['PWD']
 
 def install_in(path)
-  files = %w{ .vim .tmux .vimrc  .tmux.conf }
+  files = %w{ .vim .tmux .vimrc  .tmux.conf .gitignore }
   files.each do |f|
+    source = File.join #{PWD}, "/deploy", f
+    # Flattens filenames.
     target = File.join path, f
-    source = File.join PWD, f
     if(File.exists?(target))
        puts "#{target} already exists - not added."
     else
@@ -16,7 +17,7 @@ def install_in(path)
 
   append_files.each do |f|
     target = File.join path, f
-    source = File.join PWD, f
+    source = File.join PWD, "/deploy", f
     open(target,'a') do |file|
       file.puts "source '#{source}'"
     end
