@@ -14,6 +14,7 @@ endfunction
 autocmd VimEnter * call StartUp()
 
 set nocompatible        " Disable vi compatibility.
+set pastetoggle=<F2>
 set clipboard=unnamed
 
 set rtp+=~/.vim/bundle/Vundle.vim
