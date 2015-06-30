@@ -3,7 +3,7 @@ PWD = ENV['PWD']
 def install_in(path)
   files = %w{ .vim .tmux .vimrc  .tmux.conf .gitignore }
   files.each do |f|
-    source = File.join #{PWD}, "/deploy", f
+    source = File.join PWD, "/deploy", f
     # Flattens filenames.
     target = File.join path, f
     if(File.exists?(target))
