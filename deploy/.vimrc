@@ -69,6 +69,7 @@ map <leader>gp :Gpush<CR>
 " CtrlP shortcuts
 map <leader>f :CtrlPMixed<CR>
 map <leader>b :CtrlPBuffer<CR>
+map <leader>. :CtrlPTag<CR>
 
 " The Silver Searcher
 if executable('ag')
@@ -198,9 +199,9 @@ map <silent> <m-n> :cn <cr>
 let g:rails_default_file='config/database.yml'
 
 " Backups & Files
-set backup                     " Enable creation of backup file.
-set backupdir=~/.vim/backups " Where backups will go.
-set directory=~/.vim/tmp     " Where temporary files will go.
+"set backup                     " Enable creation of backup file.
+"set backupdir=~/.vim/backups " Where backups will go.
+"set directory=~/.vim/tmp     " Where temporary files will go.
 
 "------------------------------------------------------------------------------
 " Function keys.
