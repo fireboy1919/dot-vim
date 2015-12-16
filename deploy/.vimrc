@@ -45,8 +45,12 @@ Plugin 'rking/ag.vim'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
+Plugin 'Shougo/vimproc'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'justone/remotecopy'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'suan/vim-instant-markdown'
 call vundle#end()
 
 " Did you forget to sudo?  Not a problem!

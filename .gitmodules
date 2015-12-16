@@ -1,6 +1,6 @@
-[submodule "deploy/.tmux/tmux-resurrect"]
-	path = deploy/.tmux/tmux-resurrect
-	url = https://github.com/tmux-plugins/tmux-resurrect
 [submodule "deploy/.vim/bundle/Vundle.vim"]
 	path = deploy/.vim/bundle/Vundle.vim
 	url = git@github.com:gmarik/Vundle.vim.git
+[submodule "deploy/.tmux/tpm"]
+	path = deploy/.tmux/tpm
+	url = https://github.com/tmux-plugins/tpm
