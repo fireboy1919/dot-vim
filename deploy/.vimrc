@@ -51,7 +51,7 @@ Plugin 'justone/remotecopy'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'suan/vim-instant-markdown'
-Plugin "jnwhiteh/vim-golang"
+Plugin "fatih/vim-go"
 call vundle#end()
 
 " Did you forget to sudo?  Not a problem!
