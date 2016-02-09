@@ -52,6 +52,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 
@@ -215,8 +216,8 @@ let g:rails_default_file='config/database.yml'
 
 " toggle nerdtree
 map <F5> :NERDTreeToggle <cr>
-
 " toggle taglist
+map <F6> :TagbarToggle<CR>
 "map <F6> :TlistToggle <cr>
 
 
@@ -348,16 +349,18 @@ let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_auto_select = 1
+
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+"let g:neocomplete#sources#dictionary#dictionaries = {
+"   \ 'default' : '',
+"   \ 'vimshell' : $HOME.'/.vimshell_hist',
+"   \ 'scheme' : $HOME.'/.gosh_completions'
+"       \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
