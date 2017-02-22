@@ -1,0 +1,1 @@
+/Users/rusty/.vimrc
