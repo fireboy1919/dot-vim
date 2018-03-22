@@ -30,12 +30,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-sleuth'
 "Plug 'vim-ruby/vim-ruby'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+"Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 "  Using vim-rooter instead.
 " Plugin 'amiorin/vim-project'
 
-Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/The-NERD-Commenter'
+Plug 'ctrlpvim/ctrlp.vim'
+" Generates tag files to use with ctrlp; requires ctag to be installed.
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'scrooloose/nerdcommenter'
 Plug 'vim-scripts/AnsiEsc.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdtree'
@@ -45,9 +47,6 @@ Plug 'airblade/vim-rooter'
 Plug 'sjl/splice.vim'
 " Plugin 'EasyGrep'
 Plug 'rking/ag.vim'
-" Plug 'Shougo/neocomplete'
-" Plug 'Shougo/neosnippet'
-" Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimproc'
 Plug 'Chiel92/vim-autoformat'
 Plug 'justone/remotecopy'
@@ -56,6 +55,17 @@ Plug 'Quramy/tsuquyomi'
 Plug 'suan/vim-instant-markdown'
 Plug 'fatih/vim-go'
 Plug 'majutsushi/tagbar'
+Plug 'wokalski/autocomplete-flow', { 'do': 'npm install -g flow-bin' }
+" For func argument completion
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 call plug#end()
 
 "
@@ -65,22 +75,23 @@ cmap w!! w !sudo tee % >/dev/null
 filetype plugin indent on    " required
 
 let g:deoplete#enable_at_startup = 1
+let g:neosnippet#enable_completed_snippet = 1
 
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
+"if !exists('g:deoplete#omni#input_patterns')
+" let g:deoplete#omni#input_patterns = {}
+"endif
 " let g:deoplete#disable_auto_complete = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " omnifuncs
-augroup omnifuncs
-  autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-augroup end
+"augroup omnifuncs
+"  autocmd!
+"  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"augroup end
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
@@ -103,9 +114,11 @@ map <leader>gc :Gcommit<CR>
 map <leader>gp :Gpush<CR>
 
 " CtrlP shortcuts
+let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
 map <leader>f :CtrlPMixed<CR>
 map <leader>b :CtrlPBuffer<CR>
 map <leader>. :CtrlPTag<CR>
+
 
 " The Silver Searcher
 if executable('ag')
@@ -131,7 +144,7 @@ noremap <F6> :Autoformat<CR><CR>
 
 " Syntastic settings
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+
 set statusline+=%*
 
 "let g:syntastic_always_populate_loc_list = 1
