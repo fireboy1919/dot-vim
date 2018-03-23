@@ -42,13 +42,13 @@ Plug 'vim-scripts/AnsiEsc.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'vim-syntastic/Syntastic'
+" Plug 'vim-syntastic/Syntastic'
 Plug 'airblade/vim-rooter'
 Plug 'sjl/splice.vim'
 " Plugin 'EasyGrep'
 Plug 'rking/ag.vim'
 Plug 'Shougo/vimproc'
-Plug 'Chiel92/vim-autoformat'
+" Plug 'Chiel92/vim-autoformat'
 Plug 'justone/remotecopy'
 " Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
@@ -59,6 +59,7 @@ Plug 'wokalski/autocomplete-flow', { 'do': 'npm install -g flow-bin' }
 " For func argument completion
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'w0rp/ale', { 'do': 'npm install -g prettier-standard' }
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -67,6 +68,10 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 call plug#end()
+
+let g:ale_fixers = {'javascript': ['prettier_standard']}
+let g:ale_linters = {'javascript': ['']}
+let g:ale_fix_on_save = 1
 
 "
 " Did you forget to sudo?  Not a problem!
@@ -143,9 +148,9 @@ noremap <F6> :Autoformat<CR><CR>
 
 
 " Syntastic settings
-set statusline+=%#warningmsg#
+"set statusline+=%#warningmsg#
 
-set statusline+=%*
+"set statusline+=%*
 
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1

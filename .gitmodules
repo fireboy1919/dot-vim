@@ -1,6 +1,6 @@
-[submodule "deploy/.vim/bundle/Vundle.vim"]
-	path = deploy/.vim/bundle/Vundle.vim
-	url = git@github.com:gmarik/Vundle.vim.git
 [submodule "deploy/.tmux/tpm"]
 	path = deploy/.tmux/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "deploy/bashmarks"]
+	path = deploy/bashmarks
+	url = git://github.com/huyng/bashmarks.git
