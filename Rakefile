@@ -1,7 +1,7 @@
 PWD = ENV['PWD']
 
 def install_in(path)
-  files = %w{ .vim .tmux .vimrc  .tmux.conf .gitignore }
+  files = %w{ .config/nvim .tmux .vimrc  .tmux.conf .gitignore }
   files.each do |f|
     source = File.join PWD, "/deploy", f
     # Flattens filenames.
@@ -13,7 +13,7 @@ def install_in(path)
     end
   end
 
-  append_files = %w{ .bashrc .bash_profile }
+  append_files = %w{ .zshrc }
 
   append_files.each do |f|
     target = File.join path, f
